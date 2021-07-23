@@ -17,7 +17,7 @@ userForm.addEventListener('submit', (e) => {
         const newUser = makeUser(name, password);
         users.push(newUser);
         setUsers(users);
-        window.location.replace('../list/index.html');
+        window.location.replace(`../list/index.html?name=${name}`);
     } else {
         alert('User name already in use.');
     }
