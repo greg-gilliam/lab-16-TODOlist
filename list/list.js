@@ -47,7 +47,7 @@ function renderNotes(user) {
             span.style.textDecoration = 'line-through';
         }
         button.addEventListener('click', () => {
-            let upDatedUser = findByName(getUsers(), user.name)
+            let upDatedUser = findByName(getUsers(), user.name);
             button.innerHTML = 'X';
             span.style.textDecoration = 'line-through';
             updateListItemCompleted(upDatedUser, listItem);
