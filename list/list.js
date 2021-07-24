@@ -16,9 +16,11 @@ submitNewNote.addEventListener('click', () =>{
     user = findByName(getUsers(), (searchParams.get('name')));
     ulContainer.innerHTML = '';
     ulContainer.appendChild(renderNotes(user));
+    newNote.value = '';
 });
 
 function updateToDos(user, newNote, bool) {
+    console.log(user);
     const updatedTodos = user.todos.filter(item => item.name !== newNote);
     const updatedUser = {
         id: user.id, 
@@ -45,16 +47,15 @@ function renderNotes(user) {
             span.style.textDecoration = 'line-through';
         }
         button.addEventListener('click', () => {
-            if (listItem.completed === false) {
-                button.innerHTML = 'X';
-                span.style.textDecoration = 'line-through';
-                updateListItemCompleted(user, listItem.name);
-            }
+            let upDatedUser = findByName(getUsers(), user.name)
+            button.innerHTML = 'X';
+            span.style.textDecoration = 'line-through';
+            updateListItemCompleted(upDatedUser, listItem);
         });
     }
     return ul;
 } 
 
 function updateListItemCompleted(user, listItem) {
-    updateToDos(user, listItem, true);
+    updateToDos(user, listItem.name, true);
 }
