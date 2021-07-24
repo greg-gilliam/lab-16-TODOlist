@@ -29,7 +29,6 @@ function updateToDos(user, newNote, bool) {
     const users = getUsers().filter(item => item.name !== user.name);
     users.push(updatedUser);
     setUsers(users);
-    
 }
 
 function renderNotes(user) {

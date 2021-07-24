@@ -12,7 +12,7 @@ userForm.addEventListener('submit', (e) => {
     const password = signInData.get('pwd');
     const users = getUsers();
     if (isValidPassword(name, password, users)) {
-        window.location.replace(`../list/index.html?name=${name}`);
+        window.location = `list/?name=${name}`;
     } else {
         alert('wrong username or password');
     }
@@ -20,5 +20,5 @@ userForm.addEventListener('submit', (e) => {
 
 createAcct.addEventListener('click', (e) => {
     e.preventDefault();
-    window.location.replace('./create/index.html');
+    window.location = ('./create');
 });
